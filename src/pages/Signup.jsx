@@ -25,7 +25,11 @@ export default function Signup() {
       console.log('Signed up successfully:', user, token);
       navigate('/dashboard');
     } catch (err) {
-      setError(err.message || 'Signup failed');
+      // setError(err.message || 'Signup failed');
+      setError(
+        err.response?.data?.message || 'Signup failed'
+      );
+
     } finally {
       setLoading(false);
     }
